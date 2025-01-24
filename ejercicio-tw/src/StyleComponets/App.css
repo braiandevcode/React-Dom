@@ -1,8 +1,9 @@
 
 .tw-followed-article{
     width: 350px;
-    border: 2px solid  #d1d1d1;
-    border-radius: 15px;
+    background-color: #0a558bdf;
+    border: 1px solid  #d1d1d1;
+    border-radius: 10px;
     padding: 1rem 2rem;
 }
 
@@ -13,11 +14,12 @@
 }
 .tw-followed-list{
     width: 100%;
-    background: #1212121b;
+    padding: 1rem;
+    border-radius: 4px;
 }
 .tw-followed-list__item{
-    width: 100%;
-    padding: .3rem;
+    width: calc(100% + 2rem);
+    padding: .5rem;
 }
 
 .tw-followed-list__data-profile__desc > span{
