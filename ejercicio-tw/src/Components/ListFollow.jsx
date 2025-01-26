@@ -1,8 +1,25 @@
+import { useState, useEffect } from "react";
 import { Button } from "./Button";
 import PropTypes from "prop-types";
 export function ListFollow({ formatUserName , userName, name }) {
   const imageProfile = `https://unavatar.io/${userName}`;
+  
+  //Usos de useState
+  const [follow, setFollow ] = useState('');
+  const [isFollowing, setIsFollowing] = useState(false);
 
+  const btnClassName = !isFollowing ? 'btn btn-followed' : 'btn btn-followed is-following';
+
+  //  Uso de useEffect para renderizados
+  useEffect(()=>{
+    setFollow(isFollowing ? 'Siguiendo' : 'Seguir'); //Dependiendo del boolean cambiara el texto.
+  }, [isFollowing]);
+
+  const handleClickFriend = ()=>{
+    setIsFollowing(!isFollowing); //Pasar al valor contrario una vez que se ejecuta la funcion
+  }
+
+  // Retornar vista
   return (
       <li className="tw-followed-list__item d-flex ai-center jc-b">
         <header className="tw-followed-list__data-profile d-flex ai-center jc-center g-1">
@@ -12,8 +29,8 @@ export function ListFollow({ formatUserName , userName, name }) {
             <span>{formatUserName(userName)}</span>
           </div>
         </header>
-        <aside className="tw-followed-aside">
-          <Button className="btn btn-followed" text={"Seguir"} />
+        <aside className="tw-followed-aside" >
+          <Button handle={handleClickFriend} className={btnClassName} text={follow} />
         </aside>
       </li>
       

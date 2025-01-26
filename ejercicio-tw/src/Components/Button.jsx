@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-export function Button({ text, className }) {
+export function Button({ text, className, handle }) {
     return (
         <>
-            <button className={className}>{text}</button>
+            <button onClick={handle} className={className}>{text}</button>
         </>
     )
 }
@@ -10,4 +10,5 @@ export function Button({ text, className }) {
 Button.propTypes = {
     text: PropTypes.string.isRequired,
     className: PropTypes.string.isRequired,
+    handle:PropTypes.func.isRequired,
 }
