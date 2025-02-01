@@ -10,3 +10,5 @@ Curso en linea de react + Vite
 | `01` | Twitter Follow Card | [Ver](ejercicio-tw) |
 
 | `02` | Ta-Te-Ti | [Ver](ejercicio-ta-te-ti) |
+
+ `03` | mouse follower| [Ver](mouse-follower) |
