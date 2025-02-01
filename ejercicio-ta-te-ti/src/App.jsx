@@ -8,26 +8,26 @@ import { WinnerModal } from './Component/WinnerModal';
 import { resetGameToStorage, saveGameToStorage } from './utiil/storage';
 
 // COMPONENTE APP PRINCIPAL
-function App() {
+function App () {
   // USESTATES
-  const [board, setBoard] = useState(()=>{
+  const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board');
     return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null);
   });
 
-  const [turn, setTurn] = useState(()=>{
+  const [turn, setTurn] = useState(() => {
     const turnFromStorage = window.localStorage.getItem('turn');
     return turnFromStorage ?? TURN.X;
   });
 
-  const [winner, setWinner] = useState(null); 
+  const [winner, setWinner] = useState(null);
 
-  const resetGame = ()=>{
+  const resetGame = () => {
     setBoard(Array(9).fill(null));
     setTurn(TURN.X);
     setWinner(null);
     resetGameToStorage();
-  }
+  };
 
   const updateBoard = (index) => {
     if (board[index] || winner) return;
@@ -42,20 +42,20 @@ function App() {
 
     // GUARDAR ULTIMA INSTANCIA DEL JUEGO EN localstorage.
     saveGameToStorage({
-      board: newBoard, 
+      board: newBoard,
       turn: newTurn
     });
 
     // REVISAR SI HAY UN GANADOR
     const newWinner = checkWinnerFrom(newBoard);
-    if (newWinner){
+    if (newWinner) {
       confetti();
-      setWinner(newWinner); //GANADOR
+      setWinner(newWinner); // GANADOR
       resetGameToStorage();
-    }else if(checkEndGame(newBoard)){
-      setWinner(false); //EMPATE
+    } else if (checkEndGame(newBoard)) {
+      setWinner(false); // EMPATE
     }
-  }
+  };
 
   return (
     <main className='board'>
@@ -72,7 +72,7 @@ function App() {
               >
                 {square}
               </Square>
-            )
+            );
           })
         }
       </section>
@@ -88,9 +88,9 @@ function App() {
 
       {
         // SI ES TRUE RENDERIZAR LO DE LA DERECHA CON AND
-        winner !== null && (<WinnerModal  winner={winner} resetGame={resetGame} />)
+        winner !== null && (<WinnerModal winner={winner} resetGame={resetGame} />)
       }
     </main>
-  )
+  );
 }
-export default App
+export default App;

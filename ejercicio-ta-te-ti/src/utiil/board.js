@@ -1,4 +1,4 @@
-import { WINNER_COMBOS } from "../constant.js";
+import { WINNER_COMBOS } from '../constant.js';
 
 // CHECKEAR SI EXISTE GANADOR
 export const checkWinnerFrom = (checkToBoard) => {
@@ -11,15 +11,15 @@ export const checkWinnerFrom = (checkToBoard) => {
       checkToBoard[a] === checkToBoard[b] &&
       checkToBoard[a] === checkToBoard[c]
     ) {
-      return checkToBoard[a]; //NOS DEVUELVE EL GANADOR
+      return checkToBoard[a]; // NOS DEVUELVE EL GANADOR
     }
   }
   // NO HUBO GANADOR
   return null;
 };
 
-  // CHECKEAR SI FINALIZO JUEGO
-export const checkEndGame= (checkToBoard) => {
-    // REVISAMOS SI HUBO EMPATE
-    return checkToBoard.every(square => square !== null);
-  }
+// CHECKEAR SI FINALIZO JUEGO
+export const checkEndGame = (checkToBoard) => {
+  // REVISAMOS SI HUBO EMPATE
+  return checkToBoard.every(square => square !== null);
+};
