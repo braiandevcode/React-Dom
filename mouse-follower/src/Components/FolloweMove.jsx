@@ -1,5 +1,5 @@
-import { stylesBall } from "../constants";
-import PropTypes from "prop-types";
+import { stylesBall } from '../constants';
+import PropTypes from 'prop-types';
 
 // COMPONENTE BOLA
 export function FollowMove({ enable, position, updatedStateEnable }) {
@@ -13,7 +13,7 @@ export function FollowMove({ enable, position, updatedStateEnable }) {
     <>
       <div style={STYLES_BALL}></div>
       <button onClick={handleClick} type="button">
-        {`${enable ? "Desactivar" : "Activar"}`} seguir puntero
+        {`${enable ? 'Desactivar' : 'Activar'}`} seguir puntero
       </button>
     </>
   );
